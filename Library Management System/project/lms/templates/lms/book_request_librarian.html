@@ -1,0 +1,94 @@
+
+{% extends "lms/base.html" %}
+{% load static %}
+
+
+{% block inlinecss %}
+<link href="{% static 'lms/css/book_request_librarian.css' %}" rel="stylesheet">
+
+{% endblock inlinecss %}
+{% block title %}Book Request From User{% endblock title %}
+{% block main %}
+
+<body> 
+
+
+</div>
+    <section> 
+      {% comment %} <div class="main-content">
+        <form action="{% url "lms:search_book" %}" method="GET" class="search-form">
+            <input type="text" name="query" placeholder="Search..." class="search-input">
+            <input type="submit" value="Search" class="search-button">
+        </form>
+    </div> {% endcomment %}
+      <div class="library-management">
+       <h1> List of Book Request  || Library Management System </h1>
+    </div>
+    <div class="container">
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>Request Id</th>
+                <th>Book Id</th>
+                <th>Book Name</th>
+                <th>Requested By</th>
+                <th>Book Stock</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                {% for req in  book_req%}
+              <tr>
+                <td>{{ req.id }}</td>
+                <td>{{ req.book.id }}</td>
+                <td>{{ req.book.book_name }} </td>
+                {% if req.user.first_name %}
+                <td>{{ req.user.first_name }}</td>
+                {% else %}
+                <td>{{ req.user.username }}</td>
+                {% endif %}
+                <td>{{ req.book.book_stock }}</td>
+         
+    
+                
+               
+
+              {% endfor %}
+
+
+            </tbody>
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+      
+
+
+<div class="messages">
+  {% if messages %}
+  {% for messages in  messages%}
+  {{messages}}
+  {% endfor %}
+  {% endif %}
+</div>
+
+
+
+    </section> 
+    <a href="{% url "lms:dashboard" %}" class="yellow-button"><b>--Get Back To Dashboard--</b></a>
+    <a href="{% url "lms:checkout_book" %}" class="success-button" style="position: absolute; right: 25%; top: 86%; height: 50px;"><b>--Checkout--</b></a>
+</body>
+</div>
+
+  
+
+{% endblock main %}
+
+
+
+

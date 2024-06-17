@@ -1,0 +1,141 @@
+{% extends "lms/base.html" %}
+{% load static %}
+
+{% block inlinecss %}
+<link href="{% static 'lms/css/update_profile.css' %}" rel="stylesheet">
+{% endblock inlinecss %}
+
+{% block title %}{{ request.user.username|capfirst }}'s Profile{% endblock title %}
+
+{% block main %}
+<body>
+  <div class="messages">
+    {% if messages %}
+    {% for messages in  messages%}
+      {{messages}}
+    {% endfor %}
+    {% endif %}
+    </div> 
+
+    <section> 
+        <div class="library-management">
+            <h1>{{ request.user.username|capfirst }} || Update Profile</h1>
+        </div>
+    
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="account-settings">
+                        <div class="user-profile">
+                          {% if request.user.profile.profile_pic %}
+                          <img   width="310" height="225"src="{{request.user.profile.profile_pic.url}}"alt="userimage">
+                          <form action="{% url "lms:profile_pic_upload" %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="file" name="profile_img"id "profile_img">
+                            <button type="submit" class="green-button">--Change--</button>
+                            <br>
+                          </form>
+                          {% else %}
+                          
+                          <div class="user-avatar">
+                            <img width="320" height="200" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+                        </div>
+                          <form action="{% url "lms:profile_pic_upload" %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="file" name="profile_img"id "profile_img"><br>
+                            
+                          
+                            <button type="submit" class="green-button">--Upload--</button><br>
+                            <br>
+                            
+                          </form>
+
+                            
+                            {% endif %}
+                            
+                            <br>
+                            <h5 class="user-name">{{request.user.first_name|capfirst}} {{request.user.last_name|capfirst}}</h5>
+                            <h6 class="user-email">{{request.user.email}}</h6>
+                            <h6 class="user-email">{{request.user.profile.phone_number}}</h6>
+                            {% if request.user.profile.is_librarian %}
+                            <h6 class="user-email">Librarian</h6>
+                            {% else %}
+                            <h6 class="user-email">Normal User</h6>
+                            {% endif %}
+                            
+                            <br>
+                        </div>
+
+                    </div>
+                    <a href="{% url "lms:dashboard" %}" class="success-button"><b>--Get Back To Dashboard--</b></a>
+                </div>
+            </div>
+            </div>
+
+            <div class="signin"> 
+                <div class="content"> 
+                  <h2>Edit Profile</h2> 
+                  <form class="form" method="post" action="{% url "lms:update_profile" %}"> 
+                    {% csrf_token %}
+          
+                    <div class="inputBox"> 
+                      <input type="text" required name="First Name"> <i>First Name</i> 
+                    </div> 
+
+                    <div class="inputBox"> 
+                      <input type="text" required name="Last Name"> <i>Last Name</i> 
+                    </div> 
+          
+                    <div class="inputBox"> 
+                      <input type="email" required name="Email"> <i>Email</i> 
+                    </div> 
+                    <div class="inputBox"> 
+                      <input type="text" required name="Phone Number"> <i>Phone Number</i> 
+                    </div>
+                    <div class="inputBox"> 
+                      <!-- Inline style to set the button color to black -->
+                      <input type="submit" value="Update" > 
+                    </div> 
+          
+                  </form> 
+                </div> 
+              </div> 
+        </div>
+
+            <div class="signin1"> 
+                <div class="content1"> 
+                  <h2>Change Password</h2> 
+                  <form class="form" method="post" action="{% url "lms:change_password" %}">
+                    {% csrf_token %}
+                    <br>
+                    
+          
+                    <div class="inputBox1"> 
+                      <input type="password" required name="o_pass"> <i>Old Password</i> 
+                    </div> 
+                    <div class="inputBox1"> 
+                      <input type="password" required name="n_pass"> <i>New Password</i> 
+                    </div> 
+                    <div class="inputBox1"> 
+                      <input type="password" required name="c_pass"> <i>Confirm Password</i> 
+                    </div> 
+
+                    <div class="inputBox1"> 
+                      <!-- Inline style to set the button color to black -->
+                      <input type="submit" value="Change Password" > 
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      
+
+                    </div> 
+          
+                  </form> 
+                </div> 
+              </div> 
+        </div>
+
+  
+</section> 
+
+{% endblock main %}

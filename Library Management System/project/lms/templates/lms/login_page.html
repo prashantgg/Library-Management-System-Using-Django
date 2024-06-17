@@ -1,0 +1,77 @@
+
+{% extends "lms/base.html" %}
+{% load static %}
+
+
+{% block inlinecss %}
+{% comment %} <link href="" rel="stylesheet"> {% endcomment %}
+<link href="{% static 'lms/css/signup.css' %}" rel="stylesheet">
+{% endblock inlinecss %}
+{% block title %}Login{% endblock title %}
+{% block main %}
+
+<body> 
+    <section> 
+      <div class="signin"> 
+        <div class="content"> 
+          <h2>Log In</h2> 
+          <form class="form" method="post" action="{% url "lms:login_user" %}"> 
+            {% csrf_token %}
+  
+            <div class="inputBox"> 
+              <input type="text" required name="username"> <i>Username</i> 
+            </div> 
+  
+ 
+  
+            <div class="inputBox">
+              <input type="password" name="password" required><i> Password </i>
+              <button type="button" onclick="togglePasswordVisibility()">&#x1F441;</button>
+            </div>
+  
+            <div class="links">
+            <a href="{% url "lms:home" %}">Back To Home Page</a> 
+ 
+              <a href="{% url "lms:signup_user" %}">SignUp</a> 
+            </div> 
+  
+            <div class="inputBox"> 
+              <!-- Inline style to set the button color to black -->
+              <input type="submit" value="Log In" > 
+            </div> 
+  
+          </form> 
+        </div> 
+      </div> 
+      <div class="library-management">
+       <h1> Login Page || Library Management System </h1>
+      </div>
+
+      <div class="messages">
+        {% if messages %}
+        {% for messages in  messages%}
+        {{messages}}
+        {% endfor %}
+        {% endif %}
+      </div>
+
+    </section> 
+  </body>
+  
+{% block scripts %}
+<script>
+  function togglePasswordVisibility() {
+    var passwordInput = document.querySelector('input[name="password"]');
+    var showButton = document.querySelector('.inputBox button');
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        showButton.style.color = 'green'; // Change color to green
+    } else {
+        passwordInput.type = 'password';
+        showButton.innerHTML = '&#x1F441;'; // Replace with 'Show' text if needed
+        showButton.style.color = 'black'; // 
+    }
+}
+</script>
+{% endblock scripts %}
+{% endblock main %}

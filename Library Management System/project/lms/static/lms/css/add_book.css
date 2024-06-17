@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+body {
+    overflow: hidden;
+  }
+  
+section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #333333, #000000); /* Dark Gray to Black */
+    z-index: -1;
+}
+
+.library-management {
+    position: absolute;
+    left: 25%;
+    top: 20px;
+    padding: 10px;
+    color: #fff8dc;
+    border-radius: 4px;
+    z-index: 1;}
+  
+
+
+section .signin
+{
+  position: absolute;
+  width: 1000px;
+  height: 550px;
+  background: grey;  
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 300px;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+  bottom: 50px;
+}
+section .signin .content 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+section .signin .content h2 
+{
+  font-size: 2em;
+  color: yellow;
+  text-transform: uppercase;
+}
+section .signin .content .form 
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+section .signin .content .form .inputBox
+{
+  position: relative;
+  width: 50%;
+}
+section .signin .content .form .inputBox input 
+{
+  position: relative;
+  width: 100%;
+  background: #333;
+  border: none;
+  outline: none;
+  padding: 25px 10px 7.5px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1em;
+}
+section .signin .content .form .inputBox i 
+{
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  font-style: normal;
+  color: #aaa;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.signin .content .form .inputBox input:focus ~ i,
+.signin .content .form .inputBox input:valid ~ i
+{
+  transform: translateY(-7.5px);
+  font-size: 0.8em;
+  color: #fff;
+}
+.signin .content .form .links 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.signin .content .form .links a 
+{
+  color: #ffffff;
+  text-decoration: none;
+}
+.signin .content .form .links a:nth-child(2)
+{
+  color: yellow;
+  font-weight: 600;
+}
+.signin .content .form .inputBox input[type="submit"]
+{
+  padding: 10px;
+  background: yellow;
+  color: #000;
+  font-weight: 600;
+  font-size: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+input[type="submit"]:active
+{
+  opacity: 0.6;
+}
+@media (max-width: 900px)
+{
+  section span 
+  {
+    width: calc(10vw - 2px);
+    height: calc(10vw - 2px);
+  }
+}
+@media (max-width: 600px)
+{
+  section span 
+  {
+    width: calc(20vw - 2px);
+    height: calc(20vw - 2px);
+  }
+}
+.inputBox {
+  position: relative;
+  display: inline-block;
+}
+.inputBox input[type="password"] {
+  padding-right: 35px; /* Adjust as necessary */
+  box-sizing: border-box;
+}
+.inputBox button {
+  position: absolute;
+  right: 10px; /* Adjust as necessary */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  text-decoration: none;
+  font-size: 30px; /* Adjust the font size as needed */
+
+}
+
+.inputBox i {
+  margin-left: 10px; /* Optional: to add some space between input and label */
+}
+
+  
+.signin .content .form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns layout */
+    gap: 25px;
+  }
+  
+  .signin .content .form .inputBox {
+    position: relative;
+  }
+  
+  .signin .content .form .inputBox input,
+  .signin .content .form .inputBox textarea {
+    width: 100%;}
+
+/* Move description input to the right side */
+.signin .content .form .inputBox.description {
+    position: relative;
+  }
+  
+/* Style for the textarea */
+.signin .content .form .inputBox.description textarea {
+    width: 85%; /* Make the textarea occupy full width */
+    color: white; /* Text color */
+    background-color: #333; /* Grey background color */
+    height: 220px; /* Adjust as needed */
+    border: none; /* Remove border */
+    padding: 29px ; 
+    resize: none;
+    font-size: 14px; /* Adjust as needed */
+    line-height: 20px;
+  }
+
+  
+  /* Hide the placeholder text after typing */
+  .signin .content .form .inputBox.description textarea::placeholder {
+    color: #333; /* Set placeholder text color to match background color */
+  }
+  
+  .signin .content .form .inputBox.description textarea:focus ~ i,
+  .signin .content .form .inputBox.description textarea:valid ~ i {
+    transform: translateY(-7.5px);
+    font-size: 0.8em;
+    color: #fff;
+  }
+  
+  
+  /* For larger screens, position the description input on the right side */
+  @media (min-width: 768px) {
+    .signin .content .form .inputBox.description {
+      margin-left: 530px; /* Push the input to the right side */
+      bottom: 325px;
+    }
+  }
+  .inputBox.description2 select {
+    width: 42.5%; /* Set the width to 100% */
+    height: 55px;
+    background-color: #333; /* Set background color to grey */
+    color: #aaa; /* Set text color to white */
+    padding: 10px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Add border-radius for rounded corners */
+}
+  @media (min-width: 768px) {
+    .signin .content .form .inputBox.description2 {
+      margin-left: 530px; /* Push the input to the right side */
+      bottom: 330px;
+      width: 100%;
+    }
+  }
+  
+  .blue-button {
+    background-color: rgb(76, 160, 171);
+    color: black;
+    padding: 8px 33px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    position: absolute; /* Position the button absolutely */
+    top: 70%; /* Adjust the top position */
+    left: 30%; /* Adjust the left position */
+    transform: translate(-50%, -50%); /* Center the button */
+    z-index: 1; /* Bring the button to the front */
+}
+
+.blue-button:hover {
+    background-color: transparent;
+    color: rgb(14, 199, 224);;
+    border: 2px solid rgb(14, 199, 224);;
+}
+  .green-button {
+    background-color: rgb(23, 199, 23);
+    color: black;
+    padding: 8px 33px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    position: absolute; /* Position the button absolutely */
+    top: 70%; /* Adjust the top position */
+    left: 64%; /* Adjust the left position */
+    transform: translate(-50%, -50%); /* Center the button */
+    z-index: 1; /* Bring the button to the front */
+}
+
+.green-button:hover {
+    background-color: transparent;
+    color: rgb(66, 224, 14);;
+    border: 2px solid rgb(31, 224, 14);;
+}
+ 
+  
+.messages {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background: linear-gradient(135deg, #333333, #000000);
+    color: #fff;
+    border-radius: 4px;
+  }

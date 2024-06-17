@@ -1,0 +1,94 @@
+{% extends "lms/base.html" %}
+{% load static %}
+
+{% block inlinecss %}
+<link href="{% static 'lms/css/update_book.css' %}" rel="stylesheet">
+{% endblock inlinecss %}
+
+{% block title %}Update Book{% endblock title %}
+
+{% block main %}
+<body>
+    <section> 
+        <div class="library-management">
+            <h1>Update Book | Library Management System</h1><br>
+            <br>
+        </div>
+    <br>
+
+            <div class="signin"> 
+                <br>
+                <div class="content"> 
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                  <h2>Update Book</h2> 
+                  <form class="form" method="post"> 
+                    {% csrf_token %}
+                <div class="inputBox" style="position: relative; margin-bottom: 20px;">
+                    <input type="text" required name="book_name" placeholder="{{ book_name }}" 
+                        style=" text-align: center;"> 
+                    <i>Book Name</i>
+                </div>
+
+                    <div class="inputBox"> 
+                      <input type="text" required name="book_author"placeholder="{{ book_author }}" style=" text-align: center;"> 
+                       <i>Author</i> 
+                    </div> 
+
+                    <div class="inputBox"> 
+                      <input type="text" required name="c_class"placeholder="{{ book_class }}" style=" text-align: center;"> <i>Class</i> 
+                    </div> 
+          
+                    
+                    <div class="inputBox"> 
+                        <input type="number" required name="stock"placeholder="{{ book_stock }}" style=" text-align: center;"> <i>Stock</i> 
+                    </div>
+
+                    <div class="inputBox description">
+                    <textarea required name="description"placeholder="{{ book_description }}" style=" text-align: center;"></textarea> <i>Description</i>
+                </div>
+                <div class="inputBox description2">
+                    <select name="category" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Science">Science</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Social Science">Social Science</option>
+                        <option value="General">General</option>
+                        <option value="Literature">Literature</option>
+                        <option value="Religion">Religion</option>
+                        <option value="Psychology">Psychology</option>
+                        <option value="Management">Management</option>
+                        <option value="Economy">Economy</option>
+                    </select>
+                </div>
+                
+                    
+                    
+                  
+                <button type="submit" class="blue-button"><b>--Update Books--</b></button>
+                <button type="button" onclick="window.location.href='{% url "lms:view_books" %}'" class="green-button"><b>--Get Back To View Book Page--</b></button>
+
+                  </form> 
+
+
+                  </div>
+                </div> 
+              </div> 
+        </div>
+        
+<div class="messages">
+    {% if messages %}
+    {% for messages in  messages%}
+    {{messages}}
+    {% endfor %}
+    {% endif %}
+</section> 
+
+{% endblock main %}

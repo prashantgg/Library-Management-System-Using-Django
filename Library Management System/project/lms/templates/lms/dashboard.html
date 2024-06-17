@@ -1,0 +1,115 @@
+
+{% extends "lms/base.html" %}
+{% load static %}
+
+
+{% block inlinecss %}
+<link href="{% static 'lms/css/dashboard.css' %}" rel="stylesheet">
+
+{% endblock inlinecss %}
+{% block title %}Dashboard{% endblock title %}
+{% block main %}
+
+<body> 
+
+    <section> 
+      <div class="library-management">
+       <h1> Dashboard || Library Management System </h1>
+    </div>
+
+    <div class="management">
+      <h3> Username: {{request.user.username | capfirst}}{% if user.profile.is_librarian %} | Librarian {% else %} | Normal User{% endif %} </h3>
+   </div>
+
+
+    <div class="container">  
+        <h1> Update Your Profile</h1>
+        <br>
+        <p> This button allows you to update your profile in Library Management System, ensuring that your information is kept updated.</p>
+        <br>
+        
+        <a href="{% url "lms:update_profile" %}" class="blue-button"><b>--Update Your Profile--  </b></a>   
+    
+    </div>
+    <div class="container">
+      <h1>Add Books | Librarian</h1>
+        <br>
+        <p> This button allows librarians to add new books to the Library Management System, ensuring the catalog is kept updated.</p>
+        <br>
+        {% if user.profile.is_librarian %}
+        <a href="{% url "lms:add_books" %}" class="yellow-button"><b>--Add Books | Librarian |--  </b></a>   
+        {% else %}
+        <a class="yellow-button" disabled><b>--Librarian-Only Access--</b></a>
+
+        {% endif %}
+    </div>
+    <div class="container">
+      <h1>Book Control | Librarian</h1>
+      <br>
+      <p> This button allows librarians to view, update and delete books in LMS, ensuring to Manage Catalog with Updates & Deletions</p>
+      <br>
+      {% if user.profile.is_librarian %}
+      <a href="{% url "lms:view_books" %}" class="green-button"><b>Manage Book | Librarian | </b></a>   
+      {% else %}
+      <a class="green-button" disabled><b>--Librarian-Only Access--</b></a>
+
+      {% endif %}
+    </div>
+    
+    <div class="container">
+      <h1>Book Request | User</h1>
+      <br>
+      <p> This button allows user to view, and request books in LMS, ensuring a complete and seamless experience for managing book requests. </p>
+      <br>
+      {% if user.profile.is_librarian %}
+      <a class="pink-button" disabled><b>User-Only Access</b></a>
+
+      {% else %}
+      <a href="{% url "lms:view_books_user" %}" class="pink-button"><b>Request Book | User | </b></a>   
+
+      {% endif %}
+    </div>
+    <div class="container">    <h1>Checkout | Librarian</h1>
+      <br>
+      <p> This button allows the librarian to manage checkouts in the LMS, ensuring a efficient process for tracking and lending books. </p>
+      <br>
+      {% if user.profile.is_librarian %}
+      <a href="{% url "lms:book_request_librarian" %}" class="o_white-button"><b>--Checkout | Librarian |-- </b></a>   
+
+
+      {% else %}
+      <a class="o_white-button" disabled><b>--Librarian-Only Access--</b></a>
+
+
+      {% endif %}
+    </div>
+    <div class="container">
+        <h1> Logout From System</h1>
+        <br>
+        <p> This button allows you to securely log out from the Library Management System, ensuring that your session is safely terminated.</p>
+        <br>
+        
+        <a href="{% url "lms:logout_user" %}" class="success-button" onclick="return confirm('Are you sure you want to log out?');">
+          <b>--Click Here To Logout--</b>
+      </a>
+    </div>
+
+    
+
+      <div class="messages">
+        {% if messages %}
+        {% for messages in  messages%}
+        {{messages}}
+        {% endfor %}
+        {% endif %}
+      </div>
+
+    </section> 
+  </body>
+  
+
+{% endblock main %}
+
+
+
+

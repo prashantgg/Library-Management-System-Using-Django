@@ -1,0 +1,95 @@
+
+{% extends "lms/base.html" %}
+{% load static %}
+
+
+{% block inlinecss %}
+<link href="{% static 'lms/css/checkout_book.css' %}" rel="stylesheet">
+
+{% endblock inlinecss %}
+{% block title %}Checkout Books{% endblock title %}
+{% block main %}
+
+<body> 
+
+
+</div>
+    <section> 
+      {% comment %} <div class="main-content">
+        <form action="{% url "lms:search_book" %}" method="GET" class="search-form">
+            <input type="text" name="query" placeholder="Search..." class="search-input">
+            <input type="submit" value="Search" class="search-button">
+        </form>
+    </div> {% endcomment %}
+      <div class="library-management">
+       <h1> Checkout Books || Library Management System </h1>
+    </div>
+    <div class="container">
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>Checkout Id</th>
+                <th>Book ISBN</th>
+                <th>Book Name</th>
+                <th>Book Author</th>
+                <th>User</th>
+                <th>Issued Date</th>
+                <th>Issued By</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                {% for book in  book%}
+              <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.book_name }} </td>
+                <td>{{ book.book_author }}</td>
+                <td>{{ book.college_class }}</td>
+                <td>{{ book.book_stock }}</td>
+                <td>{{ book.description }}</td>
+                <td>{{ book.category }}</td>
+                
+                <td>
+                    <br>
+                    <br>
+                    
+                    <br>
+                    <a href="{% url "lms:detail_books" book.id%}" class="success-button"><b>Details</b></a>
+
+
+                </td>
+                
+               
+              </tr>
+
+              {% endfor %}
+
+
+            </tbody>
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+      
+
+
+
+
+
+    </section> 
+        <a href="{% url "lms:dashboard" %}" class="yellow-button"><b>--Get Back To Dashboard--</b></a>  
+    <a href="" class="success-button" style="position: absolute; right: 25%; top: 86%; height: 50px;"><b>--Checkout--</b></a>
+
+
+
+{% endblock main %}
+
+
+
+

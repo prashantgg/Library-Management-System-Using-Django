@@ -1,0 +1,64 @@
+{% extends "lms/base.html" %}
+{% load static %}
+
+{% block inlinecss %}
+<link href="{% static 'lms/css/home.css' %}" rel="stylesheet">
+
+{% endblock inlinecss %}
+
+{% block title %}Home Page{% endblock title %}
+
+{% block main %}
+<body> 
+
+    <section> 
+        <div class="library-management">
+            <h1> Home Page || Library Management System </h1>
+        </div>
+
+        <!-- Three container divs -->
+        <div class="container">
+            <h2>About Us</h2>
+                <br>
+                <img src="{% static 'lms/images/lms.jpg' %}" alt="" style="height: 200px; width: 300px;"><br><br>
+
+                <p>Welcome to Library Management System<br><br>
+                <h2>Key Features:</h2>
+                <ul>
+                <li>User Registration & Login: Secure and personalized access for all users.</li>
+                <li>Admin Role Assignment: After registration, the admin assigns roles. Users can be designated as librarians or regular users based on their needs.</li><br>
+                </ul>
+                <ul>
+
+        </div>
+
+        <div class="container">
+
+            <h2>Some Validation Rule</h2><br>
+            <img src="{% static 'lms/images/lib.jpg' %}" alt="" style="height: 200px; width: 300px;"><br><br>
+
+   
+<li>Username and phone number: Username must be more than 6 characters and phone number should be exactly 10 digits.</li>
+<li>Password: Must include at least one uppercase letter, one special symbol, and one number.</li>
+
+ 
+                
+        </div>
+
+        <div class="container">
+            <h2>Login Into System</h2>
+            <br>
+            <img src="{% static 'lms/images/login.jpg' %}" alt="" style="height: 200px; width: 300px;"><br>
+            <br>
+
+
+            <p>
+                If you are using our system for the first time, please sign up with a valid username and password. After registration, use the same username and password to log in to the system.</p>
+                <br>
+                <br>
+                <a href="{% url "lms:login_user" %}" class="success-button">--Click Here To Login and Sign Up--</a>
+
+        </div>
+    </section> 
+</body>
+{% endblock main %}

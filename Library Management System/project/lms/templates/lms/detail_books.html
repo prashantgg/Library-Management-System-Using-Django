@@ -1,0 +1,95 @@
+
+{% extends "lms/base.html" %}
+{% load static %}
+
+
+{% block inlinecss %}
+<link href="{% static 'lms/css/detail_books.css' %}" rel="stylesheet">
+
+{% endblock inlinecss %}
+{% block title %} Books Detail{% endblock title %}
+{% block main %}
+
+<body> 
+
+    <section> 
+      <div class="library-management">
+       <h1> Delete and Update Books || Library Management System </h1>
+    </div>
+    <div class="container">
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>Book Id</th>
+                <th>Book Name</th>
+                <th>Book Author</th>
+                <th>Class</th>
+                <th>Stock</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.book_name }} </td>
+                <td>{{ book.book_author }}</td>
+                <td>{{ book.college_class }}</td>
+                <td>{{ book.book_stock }}</td>
+                <td>{{ book.description }}</td>
+                <td>{{ book.category }}</td>
+                
+                <td>
+                    <br>
+                    <br>
+                    <form action="{% url 'lms:delete_books' book.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this book?');">
+                      {% csrf_token %}
+                      <button type="submit" class="red-button"><b>Delete</b></button>
+                  </form>                   
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <br>
+                    <a href="{% url "lms:update_books" book.id%}" class="success-button"><b>Update</b></a>
+
+
+                </td>
+                
+               
+              </tr>
+            </tbody>
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+      
+
+
+<div class="messages">
+  {% if messages %}
+  {% for messages in  messages%}
+  {{messages}}
+  {% endfor %}
+  {% endif %}
+</div>
+      <a href="{% url "lms:view_books" %}" class="yellow-button"><b>--Get Back To View Book Page--</b></a>
+
+
+    </section> 
+  </body>
+</div>
+  
+
+{% endblock main %}
+
+
+
+

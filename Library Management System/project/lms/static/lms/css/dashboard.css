@@ -1,0 +1,184 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+section::before 
+{
+  content: '';
+  position: absolute;
+  
+  width: 100%;
+  height: 105%;
+  background: linear-gradient(135deg, #333333, #000000); /* Dark Gray to Black */
+  animation: animate 5s linear infinite;
+}
+.library-management {
+    position: absolute;
+    left: 33%;
+    top: 20px;
+    padding: 10px;
+    color: #fff8dc
+    ;
+    border-radius: 4px;
+  }
+.management {
+    position: absolute;
+    left: 5%;
+    top: 20px;
+    padding: 10px;
+    color: #fff8dc
+    ;
+    border-radius: 4px;
+  }
+
+ 
+
+.messages {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background: linear-gradient(135deg, #333333, #000000);
+    color: #fff;
+    border-radius: 4px;
+  }
+
+  section {
+    position: relative; /* Ensure proper positioning context */
+    display: grid; /* Use CSS grid */
+    grid-template-columns: repeat(3, 2fr); /* Three columns */
+    justify-content: space-around; /* Distribute items evenly along the main axis */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line if needed */
+}
+
+.container {
+    position: relative; /* Ensure proper positioning context */
+    width: 330px; /* Set the width of the container */
+    height: 220px; /* Set a specific height for the container */
+    padding: 20px; /* Add padding for content */
+    background-color: #1d201e; /* Dark Gray */
+    color: white;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: #1d201e; /* Box shadow */
+    z-index: 1; /* Ensure the containers are displayed in front of the background */
+    margin: 18% 10px 20px; /* Adjust top margin to move the first row down */
+    left: 15%;
+}
+.success-button {
+    background-color: rgb(167, 30, 30);
+    color: black;
+    padding: 8px 33px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 25px; /* Adjust the margin to move the button to the right */
+
+}
+
+.success-button:hover {
+    background-color: transparent;
+    color: red;
+    border: 2px solid red;
+}
+.blue-button {
+    background-color: rgb(76, 160, 171);
+    color: black;
+    padding: 8px 33px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 15px; /* Adjust the margin to move the button to the right */
+
+}
+
+.blue-button:hover {
+    background-color: transparent;
+    color: rgb(14, 199, 224);;
+    border: 2px solid rgb(14, 199, 224);;
+}
+.green-button {
+    background-color: rgb(25, 202, 43);
+    color: black;
+    padding: 8px 33px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 15px; /* Adjust the margin to move the button to the right */
+
+}
+
+.green-button:hover {
+    background-color: transparent;
+    color: rgb(17, 224, 14);;
+    border: 2px solid rgb(82, 234, 16);;
+}
+
+.yellow-button {
+    background-color: rgb(187, 245, 13);
+    color: black;
+    padding: 8px 33px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 15px; /* Adjust the margin to move the button to the right */
+
+}
+
+.yellow-button:hover {
+    background-color: transparent;
+    color: rgba(222, 241, 13, 0.933);;
+    border: 2px solid rgb(187, 234, 16);;
+}
+.pink-button {
+    background-color: rgb(236, 94, 118);
+    color: black;
+    padding: 8px 33px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 15px; /* Adjust the margin to move the button to the right */
+
+}
+
+.pink-button:hover {
+    background-color: transparent;
+    color: rgb(236, 94, 118);;
+    border: 2px solid rgb(236, 94, 118);;
+}
+.o_white-button {
+    background-color: #FFFDD0;
+    color: black;
+    padding: 8px 33px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 15px; /* Adjust the margin to move the button to the right */
+
+}
+
+.o_white-button:hover {
+    background-color: transparent;
+    color: #FFFDD0;
+    border: 2px solid #FFFDD0;
+}
+
+
+

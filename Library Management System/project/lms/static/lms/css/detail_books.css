@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #333333, #000000); /* Dark Gray to Black */
+    z-index: -1;
+}
+
+.library-management {
+    position: absolute;
+    left: 30%;
+    top: 20px;
+    padding: 10px;
+    color: #fff8dc;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+
+
+
+  table{
+    width:100%;
+    table-layout: fixed;
+    bottom: 15%;
+  }
+  .tbl-header{
+    background-color: rgba(255,255,255,0.3);
+    
+   }
+  .tbl-content{
+    height:400px;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  th{
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  td{
+    padding: 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+  }
+  
+.container{
+    position: absolute;
+    top: 100px;
+    width: 90%;
+    left: 100px;
+}
+
+  
+  
+.success-button {
+  background-color: rgb(37, 136, 21);
+  color: black;
+  padding: 10px 35px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-left: 20px; /* Adjust the margin to move the button to the right */
+  position: relative;
+  top: -20px; /* Adjust the value to move the button up */
+}
+
+
+
+.success-button:hover {
+    background-color: transparent;
+    color: rgb(100, 242, 5);
+    border: 2px solid rgb(66, 237, 14);
+}
+.red-button {
+  background-color: rgb(229, 57, 9);
+  color: black;
+  padding: 10px 35px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-left: 20px; /* Adjust the margin to move the button to the right */
+}
+
+
+
+.red-button:hover {
+    background-color: transparent;
+    color: rgb(242, 45, 5);
+    border: 2px solid rgb(237, 33, 14);
+}
+
+.yellow-button {
+    position: absolute;
+    background-color: rgb(184, 187, 39);
+    color: black;
+    padding: 15px 100px;
+    top: 600px;
+
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 580px; /* Adjust the margin to move the button to the right */
+
+}
+
+.yellow-button:hover {
+    background-color: transparent;
+    color: rgb(169, 189, 36);
+    border: 2px solid rgb(237, 237, 14);
+}
+.messages {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  background: linear-gradient(135deg, #333333, #000000);
+  color: #fff;
+  border-radius: 4px;
+}
